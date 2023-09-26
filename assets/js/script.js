@@ -1,20 +1,27 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+var rootEl =$('#root');
 
 var currentDay = $('#currentDay');
+var saveBtn = $('.save');
 
 $(document).ready(function displayTime() {
   var rightNow = dayjs().format('MMMM DD YYYY hh:mm:ss a');
   currentDay.text(rightNow)
   setInterval(displayTime, 1000)
-})
+  // changeColor();
+  // appendTodo();
+});
 
 
-
-
+function log() {
+  console.log(123)
+}
 
 $(function () {
+  saveBtn.on('click', log)
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -34,3 +41,6 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
+
+// listener for click events on save button. onclick in html
